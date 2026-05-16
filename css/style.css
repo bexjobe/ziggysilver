@@ -665,6 +665,11 @@ p { color: var(--colour-text-muted); }
   max-width: 500px;
 }
 
+.book-entry-blurb p,
+.featured-blurb p { margin-bottom: 0.8rem; }
+.book-entry-blurb p:last-child,
+.featured-blurb p:last-child { margin-bottom: 0; }
+
 /* WIP / Coming Soon */
 .book-entry--wip { opacity: 0.7; }
 
