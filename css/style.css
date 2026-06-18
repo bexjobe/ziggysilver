@@ -999,14 +999,15 @@ p { color: var(--colour-text-muted); }
 
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 0.75rem);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(-6px);
+  transform: translateX(-50%) translateY(-4px);
   background: rgba(10, 10, 10, 0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--colour-border);
   min-width: 190px;
+  padding-top: 0.5rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
