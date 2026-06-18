@@ -26,10 +26,16 @@ navOverlay?.querySelectorAll('a').forEach(link => {
 });
 
 // Active nav link
+const seriesPages = ['cruel-education.html', 'sweet-treats.html', 'standalones.html'];
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a, .nav-overlay-links a').forEach(link => {
+
+document.querySelectorAll('.nav-links a, .nav-overlay-links a, .nav-overlay-sub a').forEach(link => {
   const href = link.getAttribute('href');
   if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    link.classList.add('active');
+  }
+  // Mark the Books parent link active when on a series subpage
+  if (href === 'books.html' && seriesPages.includes(currentPage)) {
     link.classList.add('active');
   }
 });

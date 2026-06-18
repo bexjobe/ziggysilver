@@ -991,3 +991,202 @@ p { color: var(--colour-text-muted); }
 
   .about-body { padding: var(--space-lg) var(--space-sm); }
 }
+
+/* ==========================================
+   NAV DROPDOWN
+   ========================================== */
+.nav-item--dropdown { position: relative; }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--colour-border);
+  min-width: 190px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  list-style: none;
+  z-index: 999;
+}
+
+.nav-item--dropdown:hover .nav-dropdown,
+.nav-item--dropdown:focus-within .nav-dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown li a {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown li a:hover,
+.nav-dropdown li a.active {
+  color: var(--colour-text);
+  background: var(--colour-surface);
+}
+
+.nav-dropdown li + li { border-top: 1px solid var(--colour-border); }
+
+/* suppress the underline animation on dropdown items */
+.nav-dropdown li a::after { display: none; }
+
+/* Mobile overlay sub-nav */
+.nav-overlay-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: 0.5rem;
+}
+
+.nav-overlay-sub a {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--colour-text-dim);
+  transition: color 0.3s ease;
+}
+
+.nav-overlay-sub a:hover,
+.nav-overlay-sub a.active { color: var(--colour-gold); }
+
+/* ==========================================
+   BOOKS HUB — Series cards
+   ========================================== */
+.series-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.series-card {
+  border: 1px solid var(--colour-border);
+  background: var(--colour-surface);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: inherit;
+}
+
+.series-card:hover {
+  border-color: var(--colour-red);
+  box-shadow: 0 0 30px var(--colour-red-glow);
+}
+
+.series-card-covers {
+  display: flex;
+  height: 210px;
+  overflow: hidden;
+}
+
+.series-card-cover {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.series-card:hover .series-card-cover { transform: scale(1.04); }
+
+.series-card-cover + .series-card-cover { border-left: 1px solid var(--colour-bg); }
+
+.series-card-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.series-card-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--colour-red);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.series-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.9rem;
+  color: var(--colour-gold);
+  line-height: 1.15;
+  margin-bottom: var(--space-xs);
+}
+
+.series-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--colour-text-muted);
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.series-card-link {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-red);
+  transition: color 0.3s ease;
+}
+
+.series-card:hover .series-card-link { color: var(--colour-red-bright); }
+
+/* Cover backgrounds for hub cards */
+.series-card-cover--merciless {
+  background-image: url('../assets/images/book-merciless.jpg'), linear-gradient(160deg, #05050a 0%, #10102a 100%);
+}
+.series-card-cover--ruthless {
+  background-image: url('../assets/images/book-ruthless.jpg'), linear-gradient(160deg, #1a0505 0%, #2a1010 100%);
+}
+.series-card-cover--candy {
+  background-image: url('../assets/images/book-sweet-like-candy.jpg'), linear-gradient(160deg, #200010 0%, #3a1030 100%);
+}
+.series-card-cover--bubble {
+  background-image: url('../assets/images/book-burst-my-bubble.jpg'), linear-gradient(160deg, #050a0a 0%, #0a1515 100%);
+}
+.series-card-cover--cold-alive {
+  background-image: url('../assets/images/book-cold-and-alive.jpg'), linear-gradient(160deg, #050a10 0%, #051a2a 100%);
+}
+.series-card-cover--sin-eater {
+  background-image: url('../assets/images/book-sin-eater.jpg'), linear-gradient(160deg, #0a0a05 0%, #1a180a 100%);
+}
+.series-card-cover--i-hate {
+  background-image: url('../assets/images/book-i-hate-everything.jpg'), linear-gradient(160deg, #0a0510 0%, #1a0520 100%);
+}
+
+@media (max-width: 899px) {
+  .series-cards {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .series-card-covers { height: 170px; }
+}
+
+@media (max-width: 599px) {
+  .series-card-covers { height: 150px; }
+}
