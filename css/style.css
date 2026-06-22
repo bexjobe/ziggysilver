@@ -421,8 +421,8 @@ p { color: var(--colour-text-muted); }
   width: 250px;
   aspect-ratio: 2 / 3;
   background-image:
-    url('../assets/images/book-sweet-like-candy.jpg'),
-    linear-gradient(160deg, #200010 0%, #3a1030 50%, #0f0010 100%);
+    url('../assets/images/book-burst-my-bubble.jpg'),
+    linear-gradient(160deg, #050a0a 0%, #0a1515 50%, #050a0a 100%);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 40px var(--colour-red-glow);
